@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Login to system</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="http://kit.fontawesome.com/a076d05399.js"></script>
+    <link rel="stylesheet" href="stylelogin.css">
+    <script>
+        $(document).ready(function() {
+            $(".submit-btn").click(function(e) {
+                e.preventDefault(); // Ngăn chặn gửi form
+                var username = $("#loginUser").val();
+                if (username === "sinhvien") {
+                    window.location.href = "index.html";
+                } else if (username === "ctsv") {
+                    window.location.href = "indexctsv.html";
+                  }else if (username == "gvcn"){
+                    window.location.href = "indexgvcn.html";
+                  }else if (username == "truongkhoa"){
+                    window.location.href = "indextk.html";
+                  }
+                // Các xử lý khác nếu cần cho trường hợp tên đăng nhập khác
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="login-wrapper">
+        <form action="" class="form">
+            <img src="images/logo.png" alt="">
+            <h2>Đăng nhập</h2>
+            <div class="input-group">
+                <input type="text" name="loginUser" id="loginUser" required>
+                <label for="loginUser">Tên đăng nhập</label>
+            </div>
+            <div class="input-group">
+                <input type="password" name="loginPwd" id="loginPwd" required>
+                <label for="loginPwd">Mật khẩu</label>
+            </div>
+            <div class="submit-btn"><a href="#">Đăng Nhập</a></div>
+            <br /> <br />
+            <a href="#forgot-pwd" class="forgot-pwd">Quên mật khẩu</a>
+        </form>
+        <div id="forgot-pwd">
+            <form action="" class="form">
+                <a href="#" class="close">&times;</a>
+                <h2>Đặt lại mật khẩu</h2>
+                <div class="input-group">
+                    <input type="email" name="email" id="email" required>
+                    <label for="email">Nhập email</label>
+                </div>
+                <input type="submit" value="Submit" class="submit-btn">
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

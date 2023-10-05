@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Đăng ký sinh viên chính sách</title>
+  <link rel="stylesheet" type="text/css" href="styledcs.css">
+  <style>
+    /* CSS cho form xem các đơn đã đăng ký */
+    
+    #studentList {
+      display: none;
+    }
+  </style>
+  <script>
+    // Hiển thị form quản lý diện chính sách
+    
+
+    // Hiển thị form xem các đơn đã đăng ký
+    function showSubmittedForms() {
+      document.getElementById("submittedForms").style.display = "block";
+      document.getElementById("studentList").style.display = "none";
+    }
+    
+    function showStudentList() {
+    document.getElementById("submittedForms").style.display = "none";
+    document.getElementById("studentList").style.display = "block";
+  }
+
+    // Xem chi tiết đơn đăng ký
+    function viewDetails(studentId) {
+      // TODO: Thực hiện hành động khi xem chi tiết đơn đăng ký
+    }
+
+    // Gửi form duyệt đơn đăng ký
+    function submitForm() {
+      // TODO: Thực hiện hành động khi gửi form duyệt đơn đăng ký
+    }
+
+  
+  </script>
+
+</head>
+
+<body>
+  <div class="container">
+
+    <header>
+      <a href="#"><img src="images/logo.png" alt=""></a>
+    </header>
+
+    <nav>
+      <div class="menu">
+        <ul>
+          <li><a href="indextk.html">Trang chủ</a></li>
+          <li><a href="#">Đào tạo</a></li>
+          <li><a href="dcstk.html">Diện chính sách</a>  
+          <li><a href="#">Tuyển sinh</a></li>
+          <li><a href="#">Liên hệ</a></li>
+        </ul>
+      </div>
+      <div class="search">
+        <input type="search" placeholder="Search...">
+        <button>Tìm Kiếm</button>
+      </div>
+      <div class="profile">
+				<img src="images/profile.png" alt="">
+					<ul>
+						<li><a href="profilegvcn.html">Profile</a></li>
+						<li><a href="login.html">Đăng xuất</a></li>
+					</ul>
+			</div>
+    </nav>
+
+    <div id="menu">
+      <ul>
+        <li><a href="#" onclick="showSubmittedForms()">Duyệt đơn đăng ký diện chính sách</a></li>
+        <li><a href="#" onclick="showStudentList()">Danh sách sinh viên diện chính sách</a></li>
+      </ul>
+    </div>
+
+    <div id="tt">
+      <div class="container1">
+        
+    
+        <div id="submittedForms">
+          <h3>Danh sách đơn đăng ký diện chính sách</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Mã sinh viên</th>
+                <th>Họ tên sinh viên</th>
+                <th>Mã diện chính sách</th>
+                <th>Thao tác</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>2050531200333</td>
+                <td>Nguyễn Văn A</td>
+                <td>Dân tộc thiểu số</td>
+                <td>
+                  <button class="detail-button" onclick="viewDetails('2050531200333')">Xem chi tiết</button>
+                </td>
+              </tr>
+              <tr>
+                <td>2050531200334</td>
+                <td>Trần Thị B</td>
+                <td>Con thương binh liệt sĩ</td>
+                <td>
+                  <button class="detail-button" onclick="viewDetails('2050531200334')">Xem chi tiết</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div id="studentList">
+          <h3>Danh sách sinh viên diện chính sách</h3>
+      
+          <table id="studentTable">
+            <tr>
+              <tr>
+              <td>1</td>
+              <td>2050531200355</td>
+              <td>Phạm Thị D</td>
+              <td>20T3</td>
+              <td>Hộ cận nghèo</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>2050531100311</td>
+              <td>Hoàng Văn E</td>
+              <td>20T3</td>
+              <td>Dân tộc thiểu số</td>
+            </tr>
+          </table>
+      </div>
+    </div>
+    <footer>
+      Võ Văn Thành
+    </footer>
+  </div>
+</body>
+</html>

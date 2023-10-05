@@ -1,0 +1,304 @@
+    body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    padding: 20px;
+    }
+
+    .container{
+    width: 980px;
+    margin: 0 auto;
+    }
+    header{
+    height: 100px;
+    background: #cb7802;
+    }
+    header img{
+    padding-left: 30px;
+    width: 100px;
+    height: 100px;
+    }
+    header a{
+    text-align: center;
+    text-transform: uppercase;
+    }
+    nav{
+    height: 35px;
+    background: #272f54;
+    margin-bottom: 5px;
+    }
+    nav .menu ul{
+    list-style: none;
+    }
+    nav .menu ul li{
+    float: left;
+    line-height: 35px;
+    padding: 0 15px;
+    position: relative;
+    }
+    nav .menu ul li:last-child{
+    border: none;
+    }
+    nav .menu ul li a{
+    color: #fff; 
+    font-size: 14px;
+    text-decoration: none;
+    }
+    nav .search{
+    line-height: 35px;
+    float: left;
+    margin-left: 150px;
+
+    }
+    .profile img{
+    margin-top: 2px;
+    width: 30px;
+    height: 30px;
+    float: right;
+    margin-right: 10px;
+
+    }
+    .profile ul{
+      position: absolute;
+      background-color: #095108;
+      list-style: none;
+      width: 100px;
+      display: none;
+      margin-left: 860px;
+      margin-top: 30px;
+  }
+  .profile:hover ul{
+      display: block;
+  }
+  .profile ul li{
+      float: left;
+      width: 80px;
+      line-height: 35px;
+      padding: 0 10px;
+      border-bottom: 1px solid #fff;
+  }
+  .profile ul li:hover{
+      background-color: rgb(106, 106, 24);
+  }
+  .profile ul li a{
+      color: #fff; 
+      font-size: 14px;
+      text-decoration: none;
+  }
+    /* #menu{
+    width: 260px;
+    height: 720px;
+    float: left;
+    background-color: #ccc;
+    }
+    #menu ul li{
+    list-style: none;
+    padding-top: 50px;
+    }
+    #menu ul li a{
+    text-decoration: none;
+    padding: 20px;
+    padding-top: 20px;
+    } */
+    /* CSS cho phần menu */
+/* CSS cho phần menu dọc */
+#menu {
+    width: 200px;
+    background-color: #f5f5f5;
+    padding: 10px;
+    margin-bottom: 20px;
+    float: left;
+    height: 720px;
+  }
+  
+  #menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  #menu ul li {
+    margin-bottom: 10px;
+    padding-top: 50px;
+  }
+  
+  #menu ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    font-weight: bold;
+    display: block;
+    padding: 20px;
+    border-left: 3px solid transparent;
+    transition: border-left 0.3s ease-in-out;
+    padding-top: 20px;
+  }
+  
+  #menu ul li a:hover {
+    border-left: 3px solid #333;
+  }
+  
+  
+    #tt{
+    width:760px ;
+    height: auto;
+    float: left;
+    }
+    #tt .container1 {
+    max-width: 760px;
+    margin: 0 auto;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    height: 679px;
+    }
+
+    h2 {
+    text-align: center;
+    margin-top: 0;
+    }
+
+    .policy-list {
+    margin-top: 30px;
+    }
+
+    .policy-list table {
+    width: 100%;
+    border-collapse: collapse;
+    }
+
+    .policy-list th, .policy-list td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+    }
+
+    .policy-list th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    }
+
+    .policy-list td:last-child {
+    text-align: center;
+    }
+
+    .policy-form {
+    margin-top: 30px;
+    }
+
+    .policy-form h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    text-align: center;
+    }
+
+    .policy-form label {
+    display: block;
+    margin-bottom: 8px;
+    }
+
+    .policy-form input[type="text"],
+    .policy-form textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+    }
+
+    .policy-form button {
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    }
+
+    .policy-form button[type="submit"] {
+    background-color: #428bca;
+    }
+
+    .policy-form button[type="submit"]:hover,
+    .policy-form button[type="submit"]:focus,
+    .policy-form button[type="submit"]:active {
+    background-color: #3071a9;
+    }
+
+    .policy-form button[type="reset"] {
+    background-color: #ccc;
+    margin-left: 10px;
+    }
+
+    .policy-form button[type="reset"]:hover,
+    .policy-form button[type="reset"]:focus,
+    .policy-form button[type="reset"]:active {
+    background-color: #b3b3b3;
+    }
+    table {
+    margin: 30px auto;
+    border-collapse: collapse;
+    width: 600px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    }
+    th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    }
+    .detail-button {
+    padding: 6px 10px;
+    border-radius: 4px;
+    }
+    #studentList {
+    margin-top: 20px;
+    }
+
+    #studentTable {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #f2f2f2;
+    border-radius: 5px;
+    }
+
+    #studentTable th,
+    #studentTable td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+    }
+
+    #studentTable th {
+    background-color: #ddd;
+    }
+
+    #studentTable tr:nth-child(even) {
+    background-color: #f9f9f9;
+    }
+
+    #studentTable tr:hover {
+    background-color: #eaeaea;
+    }
+
+    h3 {
+    color: #333;
+    text-align: center;
+    }
+    footer{
+    height: 40px;
+    background: #272f54;
+    line-height: 40px;
+    text-align: center;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    width: 980px;
+    float: right;
+    }

@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Đăng ký sinh viên chính sách</title>
+  <link rel="stylesheet" type="text/css" href="styledcs.css">
+  <style>
+    /* CSS cho form xem các đơn đã đăng ký */
+    #submittedForms {
+      display: none;
+    }
+    #studentList {
+      display: none;
+    }
+  </style>
+  <script>
+    // Hiển thị form quản lý diện chính sách
+    function showRegistrationForm() {
+      document.getElementById("registrationForm").style.display = "block";
+      document.getElementById("submittedForms").style.display = "none";
+      document.getElementById("studentList").style.display = "none";
+    }
+
+    // Hiển thị form xem các đơn đã đăng ký
+    function showSubmittedForms() {
+      document.getElementById("registrationForm").style.display = "none";
+      document.getElementById("submittedForms").style.display = "block";
+      document.getElementById("studentList").style.display = "none";
+    }
+    
+    function showStudentList() {
+    document.getElementById("registrationForm").style.display = "none";
+    document.getElementById("submittedForms").style.display = "none";
+    document.getElementById("studentList").style.display = "block";
+  }
+
+    // Xem chi tiết đơn đăng ký
+    function viewDetails(studentId) {
+      // TODO: Thực hiện hành động khi xem chi tiết đơn đăng ký
+    }
+
+    // Gửi form duyệt đơn đăng ký
+    function submitForm() {
+      // TODO: Thực hiện hành động khi gửi form duyệt đơn đăng ký
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+      // Danh sách diện chính sách mẫu
+      var policies = [
+        { code: "DCS01", name: "Hộ Nghèo", note: "Nộp minh chứng" },
+        { code: "DCS02", name: "Hộ cận Nghèo", note: "Nộp minh chứng" },
+        { code: "DCS03", name: "Dân tộc thiểu số", note: "Nộp minh chứng" }
+      ];
+
+      var policyTable = document.getElementById("policyTable");
+      var policyForm = document.getElementById("policyForm");
+      var policyCodeInput = document.getElementById("policyCode");
+      var policyNameInput = document.getElementById("policyName");
+      var policyNoteInput = document.getElementById("policyNote");
+
+      // Render danh sách diện chính sách
+      function renderPolicyList() {
+        // Xóa các dòng cũ trong bảng
+        while (policyTable.rows.length > 1) {
+          policyTable.deleteRow(1);
+        }
+
+        // Thêm dòng mới cho mỗi diện chính sách trong danh sách
+        for (var i = 0; i < policies.length; i++) {
+          var policy = policies[i];
+          var row = policyTable.insertRow(-1);
+          var codeCell = row.insertCell(0);
+          var nameCell = row.insertCell(1);
+          var noteCell = row.insertCell(2);
+          var actionCell = row.insertCell(3);
+
+          codeCell.textContent = policy.code;
+          nameCell.textContent = policy.name;
+          noteCell.textContent = policy.note;
+
+          var editButton = document.createElement("button");
+          editButton.textContent = "Sửa";
+          editButton.addEventListener("click", function() {
+            editPolicy(this.parentNode.parentNode.rowIndex - 1);
+          });
+
+          var deleteButton = document.createElement("button");
+          deleteButton.textContent = "Xóa";
+          deleteButton.addEventListener("click", function() {
+            deletePolicy(this.parentNode.parentNode.rowIndex - 1);
+          });
+
+          actionCell.appendChild(editButton);
+          actionCell.appendChild(deleteButton);
+        }
+      }
+
+      // Reset form nhập liệu
+      function resetForm() {
+        policyCodeInput.value = "";
+        policyNameInput.value = "";
+        policyNoteInput.value = "";
+      }
+
+      // Thêm diện chính sách
+      function addPolicy() {
+        var code = policyCodeInput.value.trim();
+        var name = policyNameInput.value.trim();
+        var note = policyNoteInput.value.trim();
+
+        if (code === "" || name === "") {
+          alert("Vui lòng nhập đầy đủ thông tin diện chính sách.");
+          return;
+        }
+
+        var policy = { code: code, name: name, note: note };
+        policies.push(policy);
+        renderPolicyList();
+        resetForm();
+      }
+
+      // Sửa diện chính sách
+      function editPolicy(index) {
+        var policy = policies[index];
+        policyCodeInput.value = policy.code;
+        policyNameInput.value = policy.name;
+        policyNoteInput.value = policy.note;
+
+        // Xóa diện chính sách khỏi danh sách
+        policies.splice(index, 1);
+        renderPolicyList();
+      }
+
+      // Xóa diện chính sách
+      function deletePolicy(index) {
+        policies.splice(index, 1);
+        renderPolicyList();
+      }
+
+      // Gửi form nhập liệu
+      policyForm.addEventListener("submit", function(event) {
+        event.preventDefault();
+        addPolicy();
+      });
+
+      // Reset form nhập liệu
+      policyForm.addEventListener("reset", function(event) {
+        event.preventDefault();
+        resetForm();
+      });
+
+      // Render danh sách diện chính sách ban đầu
+      renderPolicyList();
+    });
+  </script>
+
+</head>
+
+<body>
+  <div class="container">
+
+    <header>
+      <a href="#"><img src="images/logo.png" alt=""></a>
+    </header>
+
+    <nav>
+      <div class="menu">
+        <ul>
+          <li><a href="indexctsv.html">Trang chủ</a></li>
+          <li><a href="#">Đào tạo</a></li>
+          <li><a href="dcsctsv.html">Diện chính sách</a>  
+          <li><a href="#">Tuyển sinh</a></li>
+          <li><a href="#">Liên hệ</a></li>
+        </ul>
+      </div>
+      <div class="search">
+        <input type="search" placeholder="Search...">
+        <button>Tìm Kiếm</button>
+      </div>
+      <div class="profile">
+				<img src="images/profile.png" alt="">
+					<ul>
+						<li><a href="profile.html">Profile</a></li>
+						<li><a href="login.html">Đăng xuất</a></li>
+					</ul>
+			</div>
+    </nav>
+
+    <div id="menu">
+      <ul>
+        <li><a href="#" onclick="showRegistrationForm()">Quản lý diện chính sách</a></li>
+        <li><a href="#" onclick="showSubmittedForms()">Duyệt đơn đăng ký diện chính sách</a></li>
+        <li><a href="#" onclick="showStudentList()">Danh sách sinh viên diện chính sách</a></li>
+      </ul>
+    </div>
+
+    <div id="tt">
+      <div class="container1">
+        <div class="policy-form" id="registrationForm">
+          <h3>Thông tin diện chính sách</h3>
+    
+          <form id="policyForm">
+            <div class="form-group">
+              <label for="policyCode">Mã diện chính sách:</label>
+              <input type="text" id="policyCode" required>
+            </div>
+    
+            <div class="form-group">
+              <label for="policyName">Tên diện chính sách:</label>
+              <input type="text" id="policyName" required>
+            </div>
+    
+            <div class="form-group">
+              <label for="policyNote">Ghi chú:</label>
+              <input type="text" id="policyNote">
+            </div>
+    
+            <div class="form-group">
+              <button type="submit">Thêm</button>
+              <button type="reset">Hủy</button>
+            </div>
+          </form>
+          <div class="policy-list">
+            <h3>Danh sách diện chính sách</h3>
+      
+            <table id="policyTable">
+              <tr>
+                <th>Mã diện chính sách</th>
+                <th>Tên diện chính sách</th>
+                <th>Ghi chú</th>
+                <th>Hành động</th>
+              </tr>
+            </table>
+          </div>
+        </div>
+    
+        <div id="submittedForms">
+          <h3>Danh sách đơn đăng ký diện chính sách</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Mã sinh viên</th>
+                <th>Họ tên sinh viên</th>
+                <th>Mã diện chính sách</th>
+                <th>Thao tác</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>2050531200333</td>
+                <td>Nguyễn Văn A</td>
+                <td>Dân tộc thiểu số</td>
+                <td>
+                  <button class="detail-button" onclick="viewDetails('2050531200333')">Xem chi tiết</button>
+                </td>
+              </tr>
+              <tr>
+                <td>2050531200334</td>
+                <td>Trần Thị B</td>
+                <td>Con thương binh liệt sĩ</td>
+                <td>
+                  <button class="detail-button" onclick="viewDetails('205053120033')">Xem chi tiết</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          
+          <h3>Xem chi tiết đơn đăng ký diện chính sách</h2>
+          <table>
+            <tr>
+              <td>Mã sinh viên:</td>
+              <td><span id="studentId">2050531200333</span></td>
+            </tr>
+            <tr>
+              <td>Tên sinh viên:</td>
+              <td><span id="studentName"> Nguyễn Văn A</span></td>
+            </tr>
+            <tr>
+              <td>Lớp:</td>
+              <td><span id="studentClass"> 20T3</span></td>
+            </tr>
+            <tr>
+              <td>Khoa:</td>
+              <td><span id="studentFaculty">CNS</span></td>
+            </tr>
+            <tr>
+              <td>Tên diện chính sách:</td>
+              <td><span id="policyName">Hộ Nghèo</span></td>
+            </tr>
+            <tr>
+              <td>Minh chứng:</td>
+              <td><img id="proofImage" src="" alt="Minh chứng"></td>
+            </tr>
+            <tr>
+              <td>Ghi chú:</td>
+              <td><textarea id="note" rows="4" cols="50" placeholder="Nhập ghi chú..."></textarea></td>
+            </tr>
+            <tr>
+              <td colspan="2" class="form-actions">
+                <button onclick="approve()">Duyệt</button>
+                <button onclick="reject()">Từ chối</button>
+              </td>
+            </tr>
+          </table>
+        
+        </div>
+
+        
+       
+        <div id="studentList">
+          <h3>Danh sách sinh viên diện chính sách</h3>
+      
+          <table id="studentTable">
+            <tr>
+              <th>STT</th>
+              <th>Mã sinh viên</th>
+              <th>Tên</th>
+              <th>Lớp</th>
+              <th>Tên diện chính sách</th>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>194979478931</td>
+              <td>Nguyễn Văn A</td>
+              <td>19CD1</td>
+              <td>Dân tộc thiểu số</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>205486489287</td>
+              <td>Trần Thị B</td>
+              <td>19C2</td>
+              <td>Con thương binh liệt sĩ</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>2050531200233</td>
+              <td>Lê Văn C</td>
+              <td>20T2</td>
+              <td>Hộ nghèo</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>2050531200355</td>
+              <td>Phạm Thị D</td>
+              <td>20T3</td>
+              <td>Hộ cận nghèo</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>2050531100311</td>
+              <td>Hoàng Văn E</td>
+              <td>20T3</td>
+              <td>Dân tộc thiểu số</td>
+            </tr>
+          </table>
+      </div>
+    </div>
+    <footer>
+      Võ Văn Thành
+    </footer>
+  </div>
+</body>
+</html>

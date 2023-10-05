@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Đăng ký sinh viên chính sách</title>
+  <link rel="stylesheet" type="text/css" href="styledangky.css">
+  <style>
+    /* CSS cho form xem các đơn đã đăng ký */
+    #submittedForms {
+      display: none;
+    }
+  </style>
+  <script>
+    function showRegistrationForm() {
+      document.getElementById("registrationForm").style.display = "block";
+      document.getElementById("submittedForms").style.display = "none";
+    }
+
+    function showSubmittedForms() {
+      document.getElementById("registrationForm").style.display = "none";
+      document.getElementById("submittedForms").style.display = "block";
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+      // Lắng nghe sự kiện khi nhấp vào "Đăng ký đơn" trong menu
+      document.getElementById("btnBackToRegistration").addEventListener("click", function(event) {
+        event.preventDefault(); // Ngăn chặn hành vi mặc định của thẻ <a>
+        showRegistrationForm(); // Hiển thị giao diện "Đăng ký đơn"
+      });
+
+      // Lắng nghe sự kiện khi nhấp vào "Đơn đã đăng ký" trong menu
+      document.getElementById("btnSubmittedForms").addEventListener("click", function(event) {
+        event.preventDefault(); // Ngăn chặn hành vi mặc định của thẻ <a>
+        showSubmittedForms(); // Hiển thị giao diện "Đơn đã đăng ký"
+      });
+
+      // Lắng nghe sự kiện khi nhấp vào "Đăng ký đơn" trong giao diện "Đơn đã đăng ký"
+      
+    });
+
+  </script>
+
+</head>
+
+<body>
+  <div class="container">
+    <!-- Phần HTML còn lại của bạn -->
+
+    <header>
+      <a href="#"><img src="images/logo.png" alt=""></a>
+    </header>
+
+    <nav>
+      <div class="menu">
+        <ul>
+          <li><a href="index.html">Trang chủ</a></li>
+          <li><a href="#">Đào tạo</a></li>
+          <li><a href="#">Hoạt động sinh viên</a>
+            <ul class="menucon">
+              <li><a href="#">Đăng ký môn học</a></li>
+              <li><a href="#">Nộp học phí</a></li>
+              <li><a href="dangky.html">Đăng ký thông tin diện chính sách</a></li>
+              <li><a href="#">Xem thời khóa biểu</a></li>
+            </ul>
+          </li>
+          <li><a href="#">Tuyển sinh</a></li>
+          <li><a href="#">Liên hệ</a></li>
+        </ul>
+      </div>
+      <div class="search">
+        <input type="search" placeholder="Search...">
+        <button>Tìm Kiếm</button>
+      </div>
+      <div class="profile">
+				<img src="images/profile.png" alt="">
+					<ul>
+						<li><a href="profile.html">Profile</a></li>
+						<li><a href="login.html">Đăng xuất</a></li>
+					</ul>
+			</div>
+    </nav>
+
+    <div id="menu">
+      <ul>
+        <li><a id="btnBackToRegistration" href="#" onclick="showRegistrationForm()">Đăng ký đơn</a></li>
+        <li><a id="btnSubmittedForms" href="#" onclick="showSubmittedForms()">Đơn đã đăng ký</a></li>
+      </ul>
+    </div>
+
+    <div id="tt">
+      <div id="registrationForm">
+        <h2>Đăng ký sinh viên chính sách</h2>
+        <form>
+          <table>
+            <tr>
+              <td><label for="name">Họ và tên:</label></td>
+              <td><input type="text" id="name" name="name" required value="Võ Văn Thành"></td>
+            </tr>
+            <tr>
+              <td><label for="student_id">Mã sinh viên:</label></td>
+              <td><input type="text" id="student_id" name="student_id" required value="2050531200333"></td>
+            </tr>
+            <tr>
+              <td><label for="class">Lớp:</label></td>
+              <td><input type="text" id="class" name="class" required value="20T3"></td>
+            </tr>
+            <tr>
+              <td><label for="faculty">Khoa:</label></td>
+              <td><input type="text" id="faculty" name="faculty" required value="Khoa Công Nghệ Số"></td>
+            </tr>
+            <tr>
+              <td><label for="policy_type">Diện chính sách:</label></td>
+              <td>
+                <select id="policy_type" name="policy_type" required>
+                  <option value="">Chọn diện chính sách</option>
+                  <option value="A">Hộ nghèo</option>
+                  <option value="B">Con thương binh liệt sỹ</option>
+                  <option value="C">Hộ cận nghèo</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td><label for="proof">Minh chứng:</label></td>
+              <td><input type="file" id="proof" name="proof" accept="image/*" multiple required></td>
+            </tr>
+          </table>
+          <input type="submit" value="Đăng ký">
+        </form>
+      </div>
+      <div id="submittedForms">
+        <h2>Các đơn đã đăng ký</h2>
+        <table>
+          <tr>
+            <th>Mã đơn</th>
+            <th>Diện chính sách</th>
+            <th>Ngày đăng ký</th>
+            <th>Trạng thái</th>
+            <th>Thao tác</th>
+          </tr>
+          <tr>
+            <td>D01</td>
+            <td>Hộ nghèo</td>
+            <td>01/06/2023</td>
+            <td>1</td>
+            <td>
+              <button>Chi tiết</button>
+              <button>Xóa</button>
+            </td>
+          </tr>
+          <tr>
+            <td>D02</td>
+            <td>Con thương binh liệt sĩ</td>
+            <td>02/06/2023</td>
+            <td>3</td>
+            <td>
+              <button>Chi tiết</button>
+              <button>Xóa</button>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div style="clear: both;"></div>
+    <footer>
+      Võ Văn Thành
+    </footer>
+  </div>
+</body>
+</html>
